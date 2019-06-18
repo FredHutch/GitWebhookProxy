@@ -9,7 +9,7 @@ import (
 	"testing"
 
 	"github.com/julienschmidt/httprouter"
-	"github.com/stakater/GitWebhookProxy/pkg/providers"
+	"github.com/FredHutch/GitWebhookProxy/pkg/providers"
 	httpmock "gopkg.in/jarcoal/httpmock.v1"
 )
 
