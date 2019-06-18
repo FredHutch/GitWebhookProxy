@@ -13,9 +13,9 @@ import (
 	"time"
 
 	"github.com/julienschmidt/httprouter"
-	"github.com/stakater/GitWebhookProxy/pkg/parser"
-	"github.com/stakater/GitWebhookProxy/pkg/providers"
-	"github.com/stakater/GitWebhookProxy/pkg/utils"
+	"github.com/FredHutch/GitWebhookProxy/pkg/parser"
+	"github.com/FredHutch/GitWebhookProxy/pkg/providers"
+	"github.com/FredHutch/GitWebhookProxy/pkg/utils"
 )
 
 var (
@@ -199,7 +199,7 @@ func (p *Proxy) Run(listenAddress string) error {
 	router.POST("/*path", p.proxyRequest)
 
 	log.Printf("Listening at: %s", listenAddress)
-	return http.ListenAndServe(listenAddress, router)
+	return http.ListenAndServeTLS(listenAddress, "server.crt", "server.key", router)
 }
 
 func NewProxy(upstreamURL string, allowedPaths []string,
