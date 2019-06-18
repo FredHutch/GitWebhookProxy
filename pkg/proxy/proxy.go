@@ -199,7 +199,7 @@ func (p *Proxy) Run(listenAddress string) error {
 	router.POST("/*path", p.proxyRequest)
 
 	log.Printf("Listening at: %s", listenAddress)
-	return http.ListenAndServeTLS(listenAddress, "server.crt", "server.key", router)
+	return http.ListenAndServeTLS(listenAddress, "/server.crt", "/server.key", router)
 }
 
 func NewProxy(upstreamURL string, allowedPaths []string,
